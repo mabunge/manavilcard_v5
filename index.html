@@ -146,9 +146,7 @@
             <div class="sticker-slot-head">스티커 1</div>
             <label class="photo-picker">
               <input id="favoriteImageInput1" type="file" accept="image/*" />
-              <div id="favoriteImagePreview1" class="photo-preview sticker-preview">
-                <span>이미지 선택</span>
-              </div>
+              <div id="favoriteImagePreview1" class="photo-preview sticker-preview"><span>이미지 선택</span></div>
             </label>
             <div class="inline-actions">
               <button id="editFavoriteImageBtn1" class="secondary-btn compact-btn" type="button" disabled>편집</button>
@@ -160,9 +158,7 @@
             <div class="sticker-slot-head">스티커 2</div>
             <label class="photo-picker">
               <input id="favoriteImageInput2" type="file" accept="image/*" />
-              <div id="favoriteImagePreview2" class="photo-preview sticker-preview">
-                <span>이미지 선택</span>
-              </div>
+              <div id="favoriteImagePreview2" class="photo-preview sticker-preview"><span>이미지 선택</span></div>
             </label>
             <div class="inline-actions">
               <button id="editFavoriteImageBtn2" class="secondary-btn compact-btn" type="button" disabled>편집</button>
@@ -174,9 +170,7 @@
             <div class="sticker-slot-head">스티커 3</div>
             <label class="photo-picker">
               <input id="favoriteImageInput3" type="file" accept="image/*" />
-              <div id="favoriteImagePreview3" class="photo-preview sticker-preview">
-                <span>이미지 선택</span>
-              </div>
+              <div id="favoriteImagePreview3" class="photo-preview sticker-preview"><span>이미지 선택</span></div>
             </label>
             <div class="inline-actions">
               <button id="editFavoriteImageBtn3" class="secondary-btn compact-btn" type="button" disabled>편집</button>
@@ -191,7 +185,7 @@
           <span>06</span>
           <div>
             <h2>도장 설정</h2>
-            <p>랜덤으로 뽑거나 원하는 문구를 직접 입력할 수 있어요.</p>
+            <p>랜덤으로 뽑거나 원하는 문구를 직접 입력할 수 있고, 도장 색상도 커스텀할 수 있어요.</p>
           </div>
         </div>
 
@@ -210,6 +204,30 @@
             <input id="customStampText" type="text" maxlength="8" placeholder="예: 최애주의" autocomplete="off" />
             <p class="helper"><span id="customStampCount">0</span>/8</p>
           </label>
+        </div>
+
+        <div class="field stamp-color-field">
+          <span>도장 색상</span>
+          <div id="stampColorPresetList" class="stamp-color-grid" role="group" aria-label="도장 색상 선택">
+            <button type="button" class="stamp-color-btn is-selected" data-color="#171717"><span class="color-dot" style="background:#171717"></span><span>검정</span></button>
+            <button type="button" class="stamp-color-btn" data-color="#b3261e"><span class="color-dot" style="background:#b3261e"></span><span>빨강</span></button>
+            <button type="button" class="stamp-color-btn" data-color="#1f4db8"><span class="color-dot" style="background:#1f4db8"></span><span>파랑</span></button>
+            <button type="button" class="stamp-color-btn" data-color="#1d7f4e"><span class="color-dot" style="background:#1d7f4e"></span><span>초록</span></button>
+            <button type="button" class="stamp-color-btn" data-color="#7b2cbf"><span class="color-dot" style="background:#7b2cbf"></span><span>보라</span></button>
+            <button type="button" class="stamp-color-btn" data-color="#d97706"><span class="color-dot" style="background:#d97706"></span><span>주황</span></button>
+          </div>
+
+          <div class="stamp-color-custom-row">
+            <label class="stamp-color-picker-wrap" for="stampColorPicker">
+              <span>직접 선택</span>
+              <input id="stampColorPicker" type="color" value="#171717" />
+            </label>
+            <label class="stamp-color-code-wrap" for="stampColorCode">
+              <span>HEX</span>
+              <input id="stampColorCode" type="text" maxlength="7" value="#171717" placeholder="#171717" />
+            </label>
+          </div>
+          <p class="helper-left">프리셋을 고르거나 원하는 HEX 색상 코드를 직접 입력할 수 있어요.</p>
         </div>
 
         <button class="primary-btn" type="submit">주민등록증 발급하기</button>
@@ -244,18 +262,14 @@
           </div>
           <button id="cropCloseBtn" class="icon-btn" type="button" aria-label="사진 자르기 닫기">×</button>
         </div>
-
         <p class="crop-guide">사진을 드래그해서 위치를 맞추고, 아래 슬라이더로 크기를 조절하세요.</p>
-
         <div class="crop-stage-wrap">
           <canvas id="cropCanvas" width="600" height="800" aria-label="프로필 사진 자르기 미리보기"></canvas>
         </div>
-
         <label class="zoom-control">
           <span>확대</span>
           <input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1" />
         </label>
-
         <div class="crop-actions">
           <button id="cropCancelBtn" class="secondary-btn" type="button">취소</button>
           <button id="cropApplyBtn" class="primary-btn" type="button">이대로 사용</button>
@@ -272,23 +286,18 @@
           </div>
           <button id="stickerCloseBtn" class="icon-btn" type="button" aria-label="스티커 편집 닫기">×</button>
         </div>
-
         <p id="stickerEditingLabel" class="helper-left">스티커를 드래그해서 위치를 바꾸고, 슬라이더로 크기와 회전을 조절하세요.</p>
-
         <div class="sticker-stage-wrap">
           <canvas id="stickerCanvas" width="1080" height="680" aria-label="스티커 카드 배치 미리보기"></canvas>
         </div>
-
         <label class="zoom-control">
           <span>크기</span>
           <input id="stickerScale" type="range" min="0.4" max="2.8" step="0.01" value="1" />
         </label>
-
         <label class="zoom-control">
           <span>회전</span>
           <input id="stickerRotation" type="range" min="-180" max="180" step="1" value="0" />
         </label>
-
         <div class="crop-actions">
           <button id="stickerCancelBtn" class="secondary-btn" type="button">취소</button>
           <button id="stickerApplyBtn" class="primary-btn" type="button">이대로 사용</button>
